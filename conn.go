@@ -239,14 +239,19 @@ func createConn(
 		cancelHandshakeReader: func() {},
 
 		replayProtectionWindow: uint(replayProtectionWindow), //nolint:gosec // G115
-
-		state: State{
-			isClient: isClient,
-		},
 	}
 
-	conn.setRemoteEpoch(0)
-	conn.setLocalEpoch(0)
+	if resumeState != nil {
+		conn.state = *resumeState
+		conn.setLocalEpoch(resumeState.getLocalEpoch())
+		conn.setRemoteEpoch(resumeState.getRemoteEpoch())
+	} else {
+		conn.state = State{
+			isClient: isClient,
+		}
+		conn.setRemoteEpoch(0)
+		conn.setLocalEpoch(0)
+	}
 
 	return conn, nil
 }
