@@ -24,9 +24,13 @@ const (
 	ALPNTypeValue                         TypeValue = 16
 	UseExtendedMasterSecretTypeValue      TypeValue = 23
 	PreSharedKeyValue                     TypeValue = 41
+	EarlyDataIndicationTypeValue          TypeValue = 42
 	SupportedVersionsTypeValue            TypeValue = 43
 	CookieTypeValue                       TypeValue = 44
 	PskKeyExchangeModesTypeValue          TypeValue = 45
+	CertificateAuthoritiesTypeValue       TypeValue = 47
+	OIDFiltersTypeValue                   TypeValue = 48
+	PostHandshakeAuthTypeValue            TypeValue = 49
 	SignatureAlgorithmsCertTypeValue      TypeValue = 50
 	KeyShareTypeValue                     TypeValue = 51
 	ConnectionIDTypeValue                 TypeValue = 54
